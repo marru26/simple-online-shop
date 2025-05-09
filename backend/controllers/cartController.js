@@ -82,11 +82,13 @@ module.exports = {
       }
       // Kirim email notifikasi (simulasi)
       const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.imitate.email',
+        port: 587,
+        secure: false,
         auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS
-        }
+          user: 'DQcYZvUtL0KJ1QGWtNVjsg',
+          pass: 'mOnJGHqnAo0q4nHHDw7o'
+        },
       });
       const productList = cart.map(item => `${item.product.title} x${item.quantity}`).join(', ');
       await transporter.sendMail({

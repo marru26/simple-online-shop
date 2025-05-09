@@ -15,7 +15,7 @@ if (!fs.existsSync(uploadDir)) {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(uploadDir));
-app.use(cors({ origin: 'http://localhost:8080' }));
+app.use(cors({ origin: ['http://localhost:8080', 'http://localhost:3000'] }));
 
 // Routes
 const userRoute = require('./routes/userRoute');
